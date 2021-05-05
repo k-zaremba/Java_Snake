@@ -14,10 +14,10 @@ public class ScorePanel extends JPanel {
 
     ScorePanel(Player[] players){
         this.setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
-        this.setBackground(Color.black);
+        this.setBackground(ColorSheet.gray);
         this.setLayout(new BorderLayout(50, 0));
 
-        this.setBorder(BorderFactory.createCompoundBorder(new LineBorder(new Color(200,0,100), 4, true), new EmptyBorder(0,30,0,30)));
+        this.setBorder(BorderFactory.createCompoundBorder(new LineBorder(ColorSheet.orange, 2, true), new EmptyBorder(0,30,0,30)));
         this.setFocusable(false);
         this.setOpaque(true);
 

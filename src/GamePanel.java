@@ -37,7 +37,7 @@ public class GamePanel extends JPanel{
 
     GamePanel(Player[] players, Timer timer) {
         this.setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT));
-        this.setBackground(Color.black);
+        this.setBackground(new Color(20,20,20));
         this.setFocusable(true);
         this.setOpaque(true);
         this.addKeyListener(new ControlKeyAdapter());
@@ -112,7 +112,7 @@ public class GamePanel extends JPanel{
                     graphics.fillRect(player.getxPos(i), player.getyPos(i), SEGMENT_SIZE, SEGMENT_SIZE);
 
                     // SNAKE SEGMENT OUTLINE
-                    graphics.setColor(Color.black);
+                    graphics.setColor(ColorSheet.gray);
                     graphics.fillRect(player.getxPos(i),player.getyPos(i), SEGMENT_SIZE, OUTLINE_THICKNESS);
                     graphics.fillRect(player.getxPos(i),player.getyPos(i), OUTLINE_THICKNESS, SEGMENT_SIZE);
                     graphics.fillRect(player.getxPos(i),player.getyPos(i) + SEGMENT_SIZE - OUTLINE_THICKNESS, SEGMENT_SIZE, OUTLINE_THICKNESS);
@@ -132,9 +132,10 @@ public class GamePanel extends JPanel{
         String startingMessage = "PRESS SPACE TO START";
         graphics.setFont(new Font("Sans Serif", Font.BOLD, 30));
         FontMetrics metrics = getFontMetrics(graphics.getFont());
-        graphics.setColor(new Color(200,0,100));
-
+        graphics.setColor(ColorSheet.berry);
         final int PADDING = 5;
+        graphics.fillRoundRect((WINDOW_WIDTH - metrics.stringWidth(startingMessage)) / 2 - PADDING, WINDOW_HEIGHT/4, metrics.stringWidth(startingMessage) + 2 * PADDING, WINDOW_HEIGHT * 3 / 16, 40, 40);
+        graphics.setColor(ColorSheet.orange);
         graphics.drawRoundRect((WINDOW_WIDTH - metrics.stringWidth(startingMessage)) / 2 - PADDING, WINDOW_HEIGHT/4, metrics.stringWidth(startingMessage) + 2 * PADDING, WINDOW_HEIGHT * 3 / 16, 40, 40);
         graphics.drawString(startingMessage, (WINDOW_WIDTH - metrics.stringWidth(startingMessage)) / 2, WINDOW_HEIGHT * 3 / 8);
     }
@@ -165,9 +166,11 @@ public class GamePanel extends JPanel{
         graphics.setFont(new Font("Sans Serif", Font.BOLD, 30));
         FontMetrics metrics = getFontMetrics(graphics.getFont());
 
-        graphics.setColor(new Color(200,0,100));
+        graphics.setColor(ColorSheet.berry);
 
         final int PADDING = 5;
+        graphics.fillRoundRect((WINDOW_WIDTH - metrics.stringWidth(gameOverMessage)) / 2 - PADDING, WINDOW_HEIGHT/4, metrics.stringWidth(gameOverMessage) + 2 * PADDING, WINDOW_HEIGHT * 3 / 16, 40, 40);
+        graphics.setColor(ColorSheet.orange);
         graphics.drawRoundRect((WINDOW_WIDTH - metrics.stringWidth(gameOverMessage)) / 2 - PADDING, WINDOW_HEIGHT/4, metrics.stringWidth(gameOverMessage) + 2 * PADDING, WINDOW_HEIGHT * 3 / 16, 40, 40);
         graphics.drawString(gameOverMessage, (WINDOW_WIDTH - metrics.stringWidth(gameOverMessage)) / 2, WINDOW_HEIGHT * 3 / 8);
         timer.stop();

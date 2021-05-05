@@ -5,8 +5,8 @@ public class ResetButton  extends JButton{
 
     ResetButton(){
         this.setFocusable(false);
-        this.setBackground(Color.black);
+        this.setBackground(ColorSheet.gray);
         this.setText("RESET");
-        this.setForeground(new Color(200,0,100));
+        this.setForeground(ColorSheet.orange);
     }
 }
